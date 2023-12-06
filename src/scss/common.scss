@@ -1,19 +1,46 @@
 // Заголовки, загальні БЕМ блоки та інше...
 .block-header {
+    display: grid;
+    gap: toRem(24);
     &--center {
-
+        text-align: center;
+    }
+    &--inline {
+        grid-template-columns: minmax(auto,toRem(586)) minmax(auto,toRem(513));
+        justify-content: space-between;
+        gap: toRem(24);
+        align-items: end;
     }
     &__title {
+        color: $darkColor;
+        @include adaptiveValue("font-size", 52, 32);
+        font-weight: 700;
+        line-height: 123%;
+
         &--big {
-    
+            @include adaptiveValue("font-size", 64, 44);
         }
         &--white {
-        
+            color: #fff;
         }
     }
     
     &__text {
-    
+    line-height: 155%;
+
     }
 }
 
+
+/*
+                <div class="block-header">
+					<h2 class="block-header__title">
+						Professional for your home services
+					</h2>
+					<div class="block-header__text">
+						<p>You need help for home care? 
+							We are home care professionals focused in the US region. 
+							We provide several services that support home services</p>
+					</div>
+				</div>
+*/
