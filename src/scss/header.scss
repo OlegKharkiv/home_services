@@ -13,6 +13,11 @@
         gap: toRm(15);
         padding-top: toRem(10);
         padding-bottom: toRem(10);
+        @media (max-width:$mobile){
+            min-height: toRem(55);
+            justify-content: space-between;
+            grid-template-columns: auto auto; 
+        }
 
     }
     &__logo {
@@ -38,6 +43,9 @@
             content: '';
             border-radius: 50%;
         }
+        @media (max-width:$mobile){
+             justify-content: flex-end; 
+        }
     }
 }
 .menu {
@@ -47,22 +55,35 @@
     }
     &__body {
         @media (max-width:$mobile){
-             padding: toRem(120) toRem(15) toRem(15) toRem(30);
+             padding: toRem(100) toRem(15) toRem(25) toRem(15);
              position: fixed;
              width: 100%;
              height: 100%;
+             row-gap: toRem(40);
              top: 0;
-             left: 0;
+             left: 100%;
+             overflow: auto;
+             display: flex;
+             flex-direction: column;
              background-color: $bgColorSemi;
+             transition: left 0.5s;
              &::before{
                 content: '';
                 position: fixed;
                 width: 100%;
-                height: toRem(80);
+                height: toRem(55);
                 top: 0;
-                left: 0;
+                left: 100%;
                 z-index: 2;
+                transition: left 0.5s;
                 background-color: $bgColor;
+             }
+             .menu-open & {
+                left: 0;
+                &::before {
+                    left: 0;
+                }
+
              } 
         }
     }
@@ -72,11 +93,12 @@
         row-gap: toRem(3);
         @include adaptiveValue("column-gap", 57, 15, 0, $containerWidth, 768);
         @media (max-width:$mobile){
-             font-size: toRem(30);
-             justify-content: center;
-             align-items: center;
+            flex: 1 1 auto;
+             font-size: toRem(28);
+            //  justify-content: center;
+             align-items: flex-end;
              flex-direction: column;
-             row-gap: toRem(30); 
+             row-gap: toRem(28); 
         }
     }
     &__item {
