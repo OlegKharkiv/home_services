@@ -190,3 +190,262 @@
     }
 }
 //====================================================================================================
+.about {
+    @include adaptiveValue("padding-top", 123, 40);
+    @include adaptiveValue("padding-bottom", 64, 20);
+    &__container {
+        display: grid;
+        row-gap: toRem(30);
+        grid-template-columns: repeat(2, 1fr);
+        @media (max-width:$tablet){
+            grid-template-columns: auto;
+        }
+
+    }
+    &__body {
+        @include adaptiveValue("padding-top", 100, 30, 2, $containerWidth, 991.98);
+        @media (min-width:$tablet){
+            max-width: toRem(580);
+            padding-right: toRem(20);
+        }
+        
+    }
+    &__block-header {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 54, 30);
+        }
+    }
+    &__items {
+        display: grid;
+        @include adaptiveValue("gap", 32, 15);;
+        grid-template-columns: repeat(2, 1fr);
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 56, 30);
+        }
+        @media (max-width: em(450)){
+            grid-template-columns: auto;
+        }
+    }
+    &__item {
+        background: url("@img/icons/check_for_services.svg") 0 em(10, 20) no-repeat;
+        padding-left: toRem(28);
+        @include adaptiveValue("font-size", 20, 16);
+        font-size: toRem(20);
+        font-weight: 700;
+        color: $bgColorSemi;
+        line-height: 1.4;
+
+        opacity: 0;
+        transform: translate(0px, 15%);
+        transition: 
+            opacity 0.5s,
+            transform 0.5s;
+
+        ._watcher-view & {
+            opacity: 1;
+            transform: translate(0, 0);
+            @for $i from 1 through 6 {
+                &:nth-child(#{$i}) {
+                    $startDelay: 0.5;
+                    $delay: $i * 0.15 + $startDelay;
+                    transition-delay: #{$delay}s;
+                }
+            }
+        }
+        
+    }
+    &__info {
+        border-radius: toRem(24);
+        background-color: $bgColorLite;
+        padding: toRem(12) toRem(32);
+        color: #fff;
+        line-height: 155.555556%;
+        a {
+            white-space: nowrap;
+            font-size: toRem(20);
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        @media (min-width:$tablet){
+            max-width: toRem(450);
+        }
+    }
+    &__image {
+        text-align: center;
+        img {
+            max-width: 100%;
+        }
+    }
+}
+//====================================================================================================
+.services {
+    @include adaptiveValue("padding-top", 120, 20);
+    @include adaptiveValue("padding-bottom", 140, 40);
+    &__container {
+
+    }
+    &__block-header {
+        max-width: toRem(560);
+        margin: 0 auto;
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 60, 30);
+        }
+    }
+    &__items {
+        display: grid;
+        grid-template-columns: auto;
+        @media (min-width: em(670)){
+            grid-template-columns: repeat(auto-fit, minmax(toRem(320), 1fr)); 
+        }
+        @media (max-width: em(669.98)){
+             row-gap: toRem(20); 
+        }
+    }
+    &__item {
+
+    }
+}
+.item-service {
+    border-radius: toRem(24);
+   @media (min-width: em(670)){
+        @include adaptiveValue("padding", 32, 15);
+   }
+   @media (max-width: em(669.98)){
+     text-align: center; 
+   }
+    &--blue {
+        color: #fff;
+        text-align: center;
+        background-color: $bgColorLite;
+        @media (max-width: em(669.98)){
+             padding: toRem(20); 
+        }
+        .item-service__title {
+            color: inherit;
+        }
+    }
+    &__icon {
+        width: toRem(64);
+        height: toRem(64);
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: toRem(20);
+        background-color: $bgColor;
+        img {
+            max-width: 100%;
+        }
+        &:not(:last-child) {
+            margin-bottom: toRem(16);
+        }
+    }
+    &__title {
+        color: $darkColor;
+        font-size: toRem(24);
+        font-weight: 700;
+        line-height: 133.333333%;
+        &:not(:last-child) {
+            margin-bottom: toRem(16);
+        }
+    }
+    &__text {
+        line-height: 155.555556%;
+        &:not(:last-child) {
+            margin-bottom: toRem(32);
+        }
+    }
+    &__button {
+    }
+}
+//====================================================================================================
+.advantages {
+    @include adaptiveValue("padding-left", 60, 15, 2, $containerWidth, 991.98);
+    @include adaptiveValue("padding-right", 60, 15, 2, $containerWidth, 991.98);
+    &__body {
+        @include adaptiveValue("padding-top", 64, 40);
+        @include adaptiveValue("padding-bottom", 64, 40);
+        background-color: $bgColor;
+        @media (min-width:$tablet){
+            border-radius: toRem(24);
+            padding-left: toRem(70);
+            padding-right: toRem(70);
+            position: relative;
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                width: toRem(45);
+                height: 73.295455%;
+                max-height: toRem(645);
+                transform: translate(0px, -50%);
+                background: url("@img/advantages/Decoration.svg") left / auto 100% no-repeat;
+            }
+            &::before {
+                left: 0;
+            }
+            &::after {
+                right: 0;
+                transform: translate(0px, -50%) rotate(180deg);
+            }
+        }
+    }
+    &__container {
+
+    }
+    &__block-header {
+        position: relative;
+        @include adaptiveValue("padding-bottom", 120, 30);
+        &::after {
+            content: '';
+            position: absolute;
+            height: toRem(1);
+            width: 100%;
+            background: linear-gradient(90deg, rgba(20, 34, 87, 0) 0%, rgba(79, 102, 183, 1) 50%, rgba(20, 34, 87, 0) 100%);
+            @include adaptiveValue("bottom", 60, 15);
+            left: 0;
+        }
+    }
+    &__items {
+        display: grid;
+        column-gap: toRem(20);
+        @include adaptiveValue("row-gap", 60, 25);
+        grid-template-columns: repeat(2, auto);
+        justify-content: space-between;
+        @media (max-width:$tablet){
+            grid-template-columns: auto;
+        }
+    }
+    &__item {
+        max-width: toRem(630);
+    }
+}
+.item-advantages {
+    display: flex;
+    @include adaptiveValue("gap", 32, 15);
+    &__icon {
+        flex: 0 0 toRem(100);
+        height: toRem(100);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            max-width: 100%;
+        }
+    }
+    &__body {
+
+    }
+    &__title {
+        font-size: toRem(24);
+        font-weight: 700;
+        line-height: 133.333333%;
+        color: #fff;
+        &:not(:last-child) {
+            margin-bottom: toRem(12);
+        }
+    }
+    &__text {
+        line-height: 155.555556%;
+    }
+}

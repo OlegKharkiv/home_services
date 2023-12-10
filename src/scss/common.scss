@@ -1,15 +1,18 @@
 // Заголовки, загальні БЕМ блоки та інше...
 .block-header {
     display: grid;
-    gap: toRem(24);
+    @include adaptiveValue("gap", 24, 15);
     &--center {
         text-align: center;
     }
     &--inline {
         grid-template-columns: minmax(auto,toRem(586)) minmax(auto,toRem(513));
         justify-content: space-between;
-        gap: toRem(24);
         align-items: end;
+        @media (max-width:$tablet){
+            grid-template-columns: auto;
+        }
+        
     }
     &__title {
         color: $darkColor;
@@ -23,11 +26,20 @@
         &--white {
             color: #fff;
         }
+
+        transform: translate(0, 15%);
+        opacity: 0;
+        transition: transform 0.3s, opacity 0.3s;
+        ._watcher-view & {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
     }
     
     &__text {
-    line-height: 155%;
-
+        p {
+            line-height: 155%;
+        }
     }
 }
 
