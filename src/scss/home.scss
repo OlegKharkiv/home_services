@@ -568,37 +568,77 @@
         width: toRem(48);
         height: toRem(48);
         border-radius: 50%;
-        background: $greyColor url("@img/icons/left_arrow.svg") center no-repeat;
+        background: #e3e6f0 url("@img/icons/left_arrow.svg") center no-repeat;
+
         &--left {
             left: 0;
         }
         &--right {
             right: 0;
-            transform: rotate(-180deg);
+            transform: translate(0px, -50%) rotate(-180deg);
+        }
+        &.swiper-button-disabled {
+            background: #e3e6f0 url("@img/icons/left_arrow.svg") center no-repeat;
+            pointer-events: none;
+            cursor: default;
         }
     }
 }
 .slide-reviews {
     text-align: center;
     &__logo {
-
+        position: relative;
+        text-align: center;
+        padding-bottom: toRem(25);
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 40, 25);
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: toRem(1);
+            background: linear-gradient(90deg, rgba(20, 34, 87, 0) 0%, $greyColor 50%, rgba(20, 34, 87, 0) 100%);
+        }
     }
     &__text {
-        border-top: toRem(1) solid rgba(203, 207, 219, 0);
+        // border-top: toRem(1) solid rgba(203, 207, 219, 0);
+        max-width: toRem(730);
+        display: inline-block;
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 40, 20);
+        }
     }
     &__user {
-
+        text-align: left;
+        display: inline-flex;
+        gap: toRem(32);
     }
     &__avatar {
-
+        flex: 0 0 toRem(76);
+        height: toRem(76);
+        border-radius: 50%;
+        img {
+            max-width: 100%;
+        }
     }
     &__body {
 
     }
     &__name {
-
+        @include adaptiveValue("font-size", 24, 18);
+        font-weight: 700;
+        line-height: 133.333333%;
+        color: $darkColor;
+        &:not(:last-child) {
+            margin-bottom: toRem(8);
+        }
     }
     &__rating {
-
+        .rating__value {
+            display: none;
+        }
     }
 }
