@@ -468,7 +468,7 @@
 //====================================================================================================
 .how {
     @include adaptiveValue("padding-top", 155, 30);
-    @include adaptiveValue("padding-bottom", 155, 30);
+    @include adaptiveValue("padding-bottom", 155, 20);
     &__container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -537,7 +537,7 @@
 }
 //====================================================================================================
 .reviews {
-    @include adaptiveValue("padding-top", 130, 0);
+    @include adaptiveValue("padding-top", 130, 20);
     @include adaptiveValue("padding-bottom", 130, 40);
     &__container {
         max-width: toRem(1160);
@@ -668,4 +668,117 @@
             display: none;
         }
     }
+}
+//====================================================================================================
+.blog {
+    @include adaptiveValue("padding-top", 84, 20);
+    @include adaptiveValue("padding-bottom", 84, 40);
+    &__container {
+        display: grid;
+    }
+    &__block-header {
+        max-width: toRem(690);
+        margin: 0 auto;
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 56, 25);
+        }
+    }
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(toRem(400), 1fr));
+        gap: toRem(48);
+        @include adaptiveValue("margin-bottom", 56, 20);
+        @media (max-width:$mobile){
+            grid-template-columns: repeat(auto-fill, minmax(toRem(280), 1fr));
+        }
+    }
+    &__item {
+
+    }
+    &__view-more {
+        justify-self: center;
+        color: $bgColorLite;
+        @include adaptiveValue("font-size", 24, 18);
+        line-height: 133.333333%;
+        font-weight: 700;
+        padding-right: em(20, 24);
+        background: url('@img/icons/IC_chevron-right.svg') right no-repeat;
+        @media (any-hover: hover){
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+.item-blog {
+    display: grid;
+    &__image-ibg {
+        aspect-ratio: 444 / 300;
+        border-radius: toRem(24);
+        overflow: hidden;
+        img {
+            transition: all 0.3s;
+        }
+        &:not(:last-child) {
+            margin-bottom: toRem(24)
+        };
+        @media (any-hover: hover){
+            &:hover{
+                img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+    &__date {
+        line-height: 155.555556%;
+        &:not(:last-child) {
+            margin-bottom: toRem(16)
+        };
+    }
+    &__title {
+        &:not(:last-child) {
+            margin-bottom: toRem(16)
+        };
+    }
+    &__link-title {
+        color: $darkColor;
+        @include adaptiveValue("font-size", 32, 28);
+        line-height: 125%;
+        font-weight: 700;
+        @media (any-hover: hover){
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    &__text {
+        &:not(:last-child) {
+            margin-bottom: toRem(24);
+        }
+    }
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: toRem(12);
+        row-gap: toRem(3);
+
+    }
+    &__tag {
+        background: #f3f5f9;
+        padding: toRem(8) toRem(16);
+        color: #545971;
+        font-size: toRem(14);
+        line-height: 142.857143%;
+        font-weight: 600;
+        border-radius: toRem(30);
+        transition: all 0.3s;
+        @media (any-hover: hover){
+            &:hover{
+                background-color: $bgColorLite;
+                color: #fff;
+            }
+        }
+    }
+
 }

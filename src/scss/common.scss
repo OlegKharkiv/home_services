@@ -66,6 +66,11 @@
 
 .text {
     line-height: 155.555556%;
+    p {
+        &:not(:last-child) {
+            margin-bottom: toRem(15);
+        }
+    }
 }
 
 .done {
