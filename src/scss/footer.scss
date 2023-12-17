@@ -1,3 +1,94 @@
 //====================================================================================================
+.footer {
+    background-color: $bgColorLite;
+    color: #fff;
+    &__container {
 
+    }
+    &__content {
+        @include adaptiveValue("padding-top", 52, 40);
+        @include adaptiveValue("padding-bottom", 72, 40);
+    }
+    &__subscribe {
+
+    }
+    &__info {
+
+    }
+    &__logo {
+
+    }
+    &__text {
+
+    }
+    &__social {
+
+    }
+    &__menu {
+
+    }
+    &__copy {
+        border-top: toRem(1) solid rgba(255, 255, 255, 0.3);
+        padding-top: toRem(32);
+        padding-bottom: toRem(32);
+        text-align: center;
+    }
+}
+.subscribe {
+    border-radius: toRem(24);
+    background-color: #4ac9ff;
+    padding: toRem(24);
+    display: grid;
+    grid-template-columns: auto 35.833333%;
+    gap: toRem(24);
+    &__body {
+
+    }
+    &__title {
+        font-size: toRem(24);
+        line-height: 133.333333%;
+        font-weight: 700;
+        &:not(:last-child) {
+            margin-bottom: toRem(12);
+        }
+    }
+    &__text {
+
+    }
+    &__form {
+        border-radius: toRem(60);
+        padding-bottom: toRem(12);
+        background-color: #fff;
+        display: flex;
+    }
+    &__input {
+        flex: 1 1 auto;
+        padding: 0 toRem(8) toRem(24);
+    }
+    &__button {
+
+    }
+}
+.__social{
+    &__item {
+
+    }
+    &__link {
+
+    }
+}
+.menu-footer {
+    &__spollers {
+
+    }
+    &__block {
+
+    }
+    &__title {
+
+    }
+    &__list {
+
+    }
+}
 //====================================================================================================

@@ -782,3 +782,140 @@
     }
 
 }
+//====================================================================================================
+.questions {
+    @include adaptiveValue("padding-top", 190, 40);
+    @include adaptiveValue("padding-bottom", 230, 40);
+    &__container {
+        display: grid;
+        align-items: start;
+        grid-template-columns: auto 57.847222%;
+        column-gap: toRem(20);
+        row-gap: toRem(30);
+        @media (max-width:$tablet){
+            grid-template-columns: auto;
+        }
+    }
+    &__block-header {
+        
+    }
+    &__spollers {
+
+    }
+}
+.spollers-questions {
+    display: grid;
+    gap: toRem(12);
+    &__item {
+        border-radius: toRem(16);
+        padding: toRem(24) toRem(32);
+        transition: background-color 0.5s;
+        &[open] {
+            background-color: #f3f5f9;
+        }
+        @media (max-width:$mobileSmall){
+             padding: toRem(15) toRem(24); 
+        }
+    }
+    &__title {
+        line-height: 120%;
+        padding-right: toRem(30);
+        transition: all 0.5s;
+        list-style: none;
+        @include adaptiveValue("font-size", 24, 18);
+        font-weight: 700;
+        &::marker {
+            display: none;
+        }
+        ._spoller-init & {
+            position: relative;
+            cursor: pointer;
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                right: toRem(0);
+                top: 50%;
+                background-color: #000;
+                height: toRem(2);
+                width: toRem(12);
+                transition: transform 0.5s ease 0s;
+            }
+            &::before {
+                transform: translate(-75%, -50%) rotate(44deg);
+            }
+            &::after {
+                transform: translate(0, -50%) rotate(-44deg);
+            }
+            &._spoller-active {
+                &::before {
+                    transform: translateX(-75%) rotate(-44deg);
+                }
+                &::after {
+                    transform: rotate(44deg);
+                }
+            }
+        }
+    }
+    &__body {
+        padding-top: toRem(16);
+        font-size: toRem(16);
+        line-height: 150%;
+    }
+}
+//====================================================================================================
+.talk {
+    background-color: $bgColor;
+    // display: grid;
+    // grid-template-rows: repeat(2, 1fr);
+    position: relative;
+    &__container {
+        @media (min-width:$tablet){
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            @include adaptiveValue("gap", 100, 30);
+        }
+    }
+    &__content {
+        position: relative;
+        @include adaptiveValue("padding-top", 165, 40);
+        @include adaptiveValue("padding-bottom", 105, 40);
+        &::before{
+            content: '';
+            background: url('@img/talk/talk_shape.svg') 0 0 / 83% no-repeat;
+            width: 100%;
+            aspect-ratio: 581 / 44;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+    &__block-header {
+        &:not(:last-child) {
+            margin-bottom: toRem(16);
+        }
+    }
+    &__done {
+        &:not(:last-child) {
+            margin-bottom: toRem(24);
+        }
+    }
+    &__image {
+       img {
+            max-width: 100%;
+       }
+        @media (min-width:$tablet){
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            @include adaptiveValue("gap", 100, 30);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            img{
+                grid-column: 2 / 3;
+                justify-self: end;
+            }
+        }
+    }
+}

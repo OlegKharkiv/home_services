@@ -47,6 +47,16 @@
         p {
             line-height: 155%;
         }
+        a {
+            font-weight: 700;
+            color: $bgColorLite;
+            text-decoration: underline;
+            @media (any-hover: hover){
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+        }
     }
 }
 

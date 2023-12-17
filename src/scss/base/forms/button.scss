@@ -24,7 +24,9 @@
 		color: $bgColorLite;
 	}
 	&--min{
-
+		font-size: toRem(18);
+		line-height: 133.333333%;
+		padding: toRem(8);
 	}
 	&--icon {
 		span {

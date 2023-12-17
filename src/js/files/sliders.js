@@ -59,7 +59,7 @@ function initSliders() {
 			// Пагінація
 			
 			pagination: {
-				el: '.swiper-pagination',
+				el: '.reviews__bullets',
 				clickable: true,
 			},
 
@@ -79,23 +79,12 @@ function initSliders() {
 			/*
 			// Брейкпоінти
 			breakpoints: {
-				640: {
+				320: {
+					slidesPerView: 1.2,
+				},
+				600: {
 					slidesPerView: 1,
-					spaceBetween: 0,
-					autoHeight: true,
-				},
-				768: {
-					slidesPerView: 2,
-					spaceBetween: 20,
-				},
-				992: {
-					slidesPerView: 3,
-					spaceBetween: 20,
-				},
-				1268: {
-					slidesPerView: 4,
-					spaceBetween: 30,
-				},
+				}
 			},
 			*/
 			// Події
