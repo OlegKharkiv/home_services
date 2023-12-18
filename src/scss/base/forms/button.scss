@@ -25,8 +25,9 @@
 	}
 	&--min{
 		font-size: toRem(18);
-		line-height: 133.333333%;
-		padding: toRem(8);
+		line-height: 150%;
+		padding: toRem(12) toRem(36);
+		min-height: 0;
 	}
 	&--icon {
 		span {

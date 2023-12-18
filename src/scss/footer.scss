@@ -10,16 +10,23 @@
         @include adaptiveValue("padding-bottom", 72, 40);
     }
     &__subscribe {
-
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 54, 30);
+        }
     }
     &__info {
-
+        display: grid;
+        @include adaptiveValue("gap", 32, 20);
     }
     &__logo {
-
+        // &:not(:last-child) {
+        //     @include adaptiveValue("margin-bottom", 32, 20);
+        // }
     }
     &__text {
-
+        // &:not(:last-child) {
+        //     @include adaptiveValue("margin-bottom", 32, 20);
+        // }
     }
     &__social {
 
@@ -39,6 +46,7 @@
     background-color: #4ac9ff;
     padding: toRem(24);
     display: grid;
+    align-items: center;
     grid-template-columns: auto 35.833333%;
     gap: toRem(24);
     &__body {
@@ -57,13 +65,26 @@
     }
     &__form {
         border-radius: toRem(60);
-        padding-bottom: toRem(12);
+        padding: toRem(12);
         background-color: #fff;
         display: flex;
+        position: relative;
+        .form__error {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            color: red;
+        }
     }
     &__input {
         flex: 1 1 auto;
-        padding: 0 toRem(8) toRem(24);
+        padding: 0 toRem(8);
+        &._form-error {
+            color: red;
+            &::placeholder {
+                color: red;
+            }
+        }
     }
     &__button {
 
