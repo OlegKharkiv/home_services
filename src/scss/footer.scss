@@ -14,7 +14,14 @@
             @include adaptiveValue("margin-bottom", 54, 30);
         }
     }
+    &__body {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: toRem(20);
+        justify-content: space-between;
+    }
     &__info {
+        max-width: toRem(460);
         display: grid;
         @include adaptiveValue("gap", 32, 20);
     }
@@ -47,8 +54,8 @@
     padding: toRem(24);
     display: grid;
     align-items: center;
-    grid-template-columns: auto 35.833333%;
-    gap: toRem(24);
+    grid-template-columns: auto toRem(516);
+    gap: toRem(24); 
     &__body {
 
     }
@@ -70,10 +77,15 @@
         display: flex;
         position: relative;
         .form__error {
+            transform: translate(-10%, -50%);
+            background-color: $bgColor;
+            border-radius: toRem(12);
+            font-size: toRem(12);
+            padding: toRem(8);
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
-            color: red;
+            color: #fff;
         }
     }
     &__input {
@@ -90,7 +102,11 @@
 
     }
 }
-.__social{
+.social {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: toRem(24);
+    row-gap: toRem(3);
     &__item {
 
     }
@@ -100,16 +116,63 @@
 }
 .menu-footer {
     &__spollers {
-
+        display: flex;
+        flex-wrap: wrap;
+        @include adaptiveValue("gap", 130, 20);
     }
     &__block {
 
     }
     &__title {
-
+        list-style: none;
+        font-weight: 700;
+        font-size: toRem(24);
+        line-height: 133.333333%;
+        &::marker {
+            display: none;
+        }
+        ._spoller-init & {
+            position: relative;
+            padding-right: toRem(30);
+            cursor: pointer;
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                right: toRem(0);
+                top: 50%;
+                background-color: #fff;
+                height: toRem(2);
+                width: toRem(8);
+                transition: transform 0.5s ease 0s;
+            }
+            &::before {
+                transform: translate(-75%, -50%) rotate(44deg);
+            }
+            &::after {
+                transform: translate(0, -50%) rotate(-44deg);
+            }
+            &._spoller-active {
+                &::before {
+                    transform: translateX(-75%) rotate(-44deg);
+                }
+                &::after {
+                    transform: rotate(44deg);
+                }
+            }
+        }
     }
     &__list {
+        padding-top: toRem(24);
+        display: grid;
+        gap: toRem(12);
+    }
+    &__item {
 
+    }
+    &__link {
+        font-size: toRem(20);
+        line-height: 160%;
     }
 }
 //====================================================================================================
