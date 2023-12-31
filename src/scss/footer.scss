@@ -17,8 +17,11 @@
     &__body {
         display: grid;
         grid-template-columns: auto auto;
-        gap: toRem(20);
+        gap: toRem(30);
         justify-content: space-between;
+        @media (max-width:$mobile){
+             grid-template-columns: auto; 
+        }
     }
     &__info {
         max-width: toRem(460);
@@ -55,7 +58,15 @@
     display: grid;
     align-items: center;
     grid-template-columns: auto toRem(516);
-    gap: toRem(24); 
+    gap: toRem(24);
+    @media (max-width:$tablet){
+        grid-template-columns: auto;
+    }
+    @media (max-width:$mobileSmall){
+         margin: 0 toRem(-15);
+         border-radius: 0;
+         padding: toRem(15); 
+    } 
     &__body {
 
     }
@@ -76,6 +87,12 @@
         background-color: #fff;
         display: flex;
         position: relative;
+        @media (max-width:$mobileSmall){
+             flex-direction: column;
+             border-radius: toRem(10);
+             overflow: hidden;
+             gap: toRem(10); 
+        }
         .form__error {
             transform: translate(-10%, -50%);
             background-color: $bgColor;
@@ -89,6 +106,7 @@
         }
     }
     &__input {
+        height: toRem(51);
         flex: 1 1 auto;
         padding: 0 toRem(8);
         &._form-error {
@@ -119,6 +137,9 @@
         display: flex;
         flex-wrap: wrap;
         @include adaptiveValue("gap", 130, 20);
+        @media (max-width:$mobile){
+             flex-direction: column; 
+        }
     }
     &__block {
 
@@ -173,6 +194,11 @@
     &__link {
         font-size: toRem(20);
         line-height: 160%;
+        @media (any-hover: hover){
+            &:hover{
+                text-decoration: underline;
+            }
+        }
     }
 }
 //====================================================================================================
